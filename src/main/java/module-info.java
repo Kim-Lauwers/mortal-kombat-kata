@@ -1,0 +1,2 @@
+module kata.mortalkombat.tournament {
+}
