@@ -1,14 +1,18 @@
 package kata.mortalkombat.tournament.realm;
 
 import kata.mortalkombat.tournament.Fighter;
+import kata.mortalkombat.tournament.math.Random;
 
-import java.util.Random;
 
 class RealmDivider {
-    private static final Random RANDOM = new Random();
+    private final Random random;
 
-    private static Realm randomRealm() {
-        int randomRealmIndex = RANDOM.nextInt(Realm.class.getEnumConstants().length);
+    RealmDivider(Random random) {
+        this.random = random;
+    }
+
+    private Realm randomRealm() {
+        int randomRealmIndex = random.random(Realm.class.getEnumConstants().length);
         return Realm.class.getEnumConstants()[randomRealmIndex];
     }
 
