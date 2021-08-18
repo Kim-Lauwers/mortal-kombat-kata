@@ -7,14 +7,14 @@ import java.util.Random;
 class RealmDivider {
     private static final Random RANDOM = new Random();
 
-    private static <T extends Enum<?>> T randomRealm(Class<T> clazz) {
-        int randomRealmIndex = RANDOM.nextInt(clazz.getEnumConstants().length);
-        return clazz.getEnumConstants()[randomRealmIndex];
+    private static Realm randomRealm() {
+        int randomRealmIndex = RANDOM.nextInt(Realm.class.getEnumConstants().length);
+        return Realm.class.getEnumConstants()[randomRealmIndex];
     }
 
     Realm determineRealmForFighter(Fighter fighter) {
-        Realm realm = randomRealm(Realm.class);
-        System.out.println(String.format("%s is fighting for: %s", fighter.getName(), realm.name()));
+        Realm realm = randomRealm();
+        System.out.printf("%s is fighting for: %s%n", fighter.getName(), realm.name());
         return realm;
     }
 }
