@@ -1,6 +1,6 @@
 package kata.mortalkombat.tournament;
 
-public class Fighter {
+class Fighter {
     private final String name;
 
     private Fighter(String name) {
