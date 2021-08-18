@@ -1,13 +1,13 @@
 package kata.mortalkombat.tournament;
 
- public class Fighter {
+class Fighter {
     private final String name;
 
     private Fighter(String name) {
         this.name = name;
     }
 
-    public static Fighter createFearsomeFighter(String name) {
+    static Fighter createFearsomeFighter(String name) {
         return new Fighter(name);
     }
 

@@ -4,9 +4,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class FighterTest {
+class FighterTest {
     @Test
-    public void whenCreateFearsomeFighter_ThenFearsomeFighterIsCreated() {
+    void whenCreateFearsomeFighter_ThenFearsomeFighterIsCreated() {
         Fighter theHero = Fighter.createFearsomeFighter("Liu Kang");
 
         assertThat(theHero.getName()).isEqualTo("Liu Kang");
