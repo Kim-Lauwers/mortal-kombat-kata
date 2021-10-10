@@ -7,7 +7,7 @@ Add following techniques.
 <br/>
 Attacking techniques:
 * Mae-Geri
-* Hiza Geri
+* Hiza-Geri
 * Mawashi-Geri
 * Ura-Mawashi-Geri
 * Tobi-Geri
