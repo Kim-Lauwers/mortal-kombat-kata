@@ -1,16 +1,18 @@
 package kata.mortalkombat.tournament;
 
 import kata.mortalkombat.tournament.technique.Attack;
+import kata.mortalkombat.tournament.technique.Training;
+import kata.mortalkombat.tournament.technique.Trainings;
 
-import java.util.HashSet;
 import java.util.Set;
 
 public class Fighter {
     private final String name;
-    private final Set<Attack> techniques = new HashSet<>();
+    private final Trainings trainings;
 
     private Fighter(String name) {
         this.name = name;
+        trainings = new Trainings();
     }
 
     public static Fighter createFearsomeFighter(String name) {
@@ -21,11 +23,12 @@ public class Fighter {
         return name;
     }
 
-    public void addTechnique(Attack technique) {
-        techniques.add(technique);
+    public void trainsWith(Sensei sensei) {
+        Training senseiTraining = sensei.teachTechnique();
+        trainings.addTraining(senseiTraining);
     }
 
-    public Set<Attack> getTechniques() {
-        return techniques;
+    public Set<Attack> getMasteredTechniques() {
+        return trainings.getMasteredTechniques();
     }
 }

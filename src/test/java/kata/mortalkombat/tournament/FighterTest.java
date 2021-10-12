@@ -1,12 +1,20 @@
 package kata.mortalkombat.tournament;
 
+import kata.mortalkombat.tournament.technique.Training;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static kata.mortalkombat.tournament.technique.Attack.GYAKU_TSUKI;
-import static kata.mortalkombat.tournament.technique.Attack.MAWASHI_GERI;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.when;
 
+@ExtendWith(MockitoExtension.class)
 class FighterTest {
+    @Mock
+    private Sensei sensei;
+
     @Test
     void whenCreateFearsomeFighter_ThenFearsomeFighterIsCreated() {
         Fighter theHero = Fighter.createFearsomeFighter("Liu Kang");
@@ -15,31 +23,23 @@ class FighterTest {
     }
 
     @Test
-    void fighter_AddTechnique_KnowsTechnique() {
+    void fighter_TrainsWithSensei_GetsTrained() {
         Fighter theHero = Fighter.createFearsomeFighter("Liu Kang");
+        when(sensei.teachTechnique()).thenReturn(new Training(GYAKU_TSUKI, 100));
 
-        theHero.addTechnique(GYAKU_TSUKI);
+        theHero.trainsWith(sensei);
 
-        assertThat(theHero.getTechniques()).containsExactly(GYAKU_TSUKI);
+        assertThat(theHero.getMasteredTechniques()).containsExactly(GYAKU_TSUKI);
     }
 
     @Test
-    void fighter_AddSameTechnique_KnowsOneTechnique() {
+    void fighter_TrainsWithSenseiTwiceForSameTechnique_GetsTrained() {
         Fighter theHero = Fighter.createFearsomeFighter("Liu Kang");
+        when(sensei.teachTechnique()).thenReturn(new Training(GYAKU_TSUKI, 50));
 
-        theHero.addTechnique(GYAKU_TSUKI);
-        theHero.addTechnique(GYAKU_TSUKI);
+        theHero.trainsWith(sensei);
+        theHero.trainsWith(sensei);
 
-        assertThat(theHero.getTechniques()).containsExactly(GYAKU_TSUKI);
-    }
-
-    @Test
-    void fighter_AddMultipleTechnique_KnowsMultipleTechnique() {
-        Fighter theHero = Fighter.createFearsomeFighter("Liu Kang");
-
-        theHero.addTechnique(GYAKU_TSUKI);
-        theHero.addTechnique(MAWASHI_GERI);
-
-        assertThat(theHero.getTechniques()).containsExactly(GYAKU_TSUKI, MAWASHI_GERI);
+        assertThat(theHero.getMasteredTechniques()).containsExactly(GYAKU_TSUKI);
     }
 }

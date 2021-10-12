@@ -1,5 +1,7 @@
 package kata.mortalkombat.tournament.technique;
 
+import kata.mortalkombat.tournament.math.Random;
+
 public enum Attack {
     MAE_GERI,
     HIZA_GERI,
@@ -10,5 +12,9 @@ public enum Attack {
     YOKO_GERI,
     KIZAMI_TSUKI,
     GYAKU_TSUKI,
-    OI_TSUKI
+    OI_TSUKI;
+
+    public static Attack random() {
+        return values()[new Random().random(values().length)];
+    }
 }
