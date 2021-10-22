@@ -35,3 +35,4 @@ Tai-Sabaki defends against
 * BUT if the sensei teaches you a defense technique and you do not master (> 100 hours trained) at least 1 of the attacking techniques it defends against, you only get **half** of the sensei his training hours.
 * A sensei randomly teaches a defense or attack
 * In a randori the 80 hours also count for defense.
+* The commentator also reports on this.
