@@ -1,6 +1,6 @@
 package kata.mortalkombat.tournament.realm;
 
-import kata.mortalkombat.tournament.Fighter;
+import kata.mortalkombat.tournament.fighter.Fighter;
 import kata.mortalkombat.tournament.math.Random;
 
 

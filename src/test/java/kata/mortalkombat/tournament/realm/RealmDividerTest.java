@@ -3,7 +3,7 @@ package kata.mortalkombat.tournament.realm;
 import kata.mortalkombat.tournament.math.Random;
 import org.junit.jupiter.api.Test;
 
-import static kata.mortalkombat.tournament.Fighter.createFearsomeFighter;
+import static kata.mortalkombat.tournament.fighter.Fighter.createFearsomeFighter;
 import static kata.mortalkombat.tournament.realm.Realm.EDENIA;
 import static org.assertj.core.api.Assertions.assertThat;
 

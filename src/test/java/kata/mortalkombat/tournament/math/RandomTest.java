@@ -10,6 +10,6 @@ class RandomTest {
     public void whenAskRandom_ThenRandomIsGiven() {
         Random random = new Random();
 
-        assertThat(random.random(MAX_VALUE)).isNotEqualTo(random.random(MAX_VALUE));
+        assertThat(random.random(MAX_VALUE - 1)).isNotEqualTo(random.random(MAX_VALUE - 1));
     }
 }
