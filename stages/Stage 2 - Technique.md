@@ -3,8 +3,8 @@
 A fighter without any techniques is just like a soccer player, not very useful :-)
 
 Add following techniques.
-<br/>
-<br/>
+<br />
+<br />
 Attacking techniques:
 * Mae-Geri
 * Hiza-Geri
@@ -17,6 +17,6 @@ Attacking techniques:
 * Gyaku-Tsuki
 * Oi-Tsuki
 
-  <br/>
+  <br />
 
 Did you know that Geri means a kick in Japanese and Tsuki means punch.
