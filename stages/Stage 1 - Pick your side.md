@@ -13,19 +13,19 @@ The realms are as follows:
 * Chaosrealm
 * Orderrealm (aka Seido)
 
-<br/>
-<br/>
-<br/>
+<br />
+<br />
+<br />
 Implement a Tournament Master that randomly assigns a fighter to a Realm when creating a fighter.
 Try to have some feedback from the Master as well like this:
-<br/>
-<br/>
+<br />
+<br />
 Hmm, who do we have here?
-<br/>
+<br />
 Ah, I see, a Reptile
-<br/>
+<br />
 Where shall we put you...
-<br/>
+<br />
 Oh, I know...
-<br/>
+<br />
 OK Reptile, You will fight for ... Outworld!
