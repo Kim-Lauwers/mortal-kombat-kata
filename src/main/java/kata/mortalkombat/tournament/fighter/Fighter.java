@@ -2,7 +2,7 @@ package kata.mortalkombat.tournament.fighter;
 
 import kata.mortalkombat.tournament.Sensei;
 import kata.mortalkombat.tournament.commentator.Commentator;
-import kata.mortalkombat.tournament.technique.Attack;
+import kata.mortalkombat.tournament.technique.Technique;
 import kata.mortalkombat.tournament.technique.Techniques;
 import kata.mortalkombat.tournament.technique.Training;
 
@@ -32,7 +32,7 @@ public class Fighter {
     public void trainsWith(Sensei sensei) {
         Training senseiTraining = sensei.teachTechnique();
         techniques.addTraining(senseiTraining);
-        commentator.giveComment(String.format("%s trained %s with his sensei", name, senseiTraining.getAttack()));
+        commentator.giveComment(String.format("%s trained %s with his sensei", name, senseiTraining.getTechnique()));
     }
 
     public Fighter fightsRandoriWith(Fighter fighter) {
@@ -72,7 +72,7 @@ public class Fighter {
 
     private Training throwsAttack() {
         Training technique = this.techniques.getRandomRandoriTechnique();
-        commentator.giveComment(String.format("%s throws the attack %s", this, technique.getAttack()));
+        commentator.giveComment(String.format("%s throws the attack %s", this, technique.getTechnique()));
         return technique;
     }
 
@@ -80,7 +80,7 @@ public class Fighter {
         return techniques.hasRandoriTechniques();
     }
 
-    public Set<Attack> getMasteredTechniques() {
+    public Set<Technique> getMasteredTechniques() {
         return techniques.getMasteredTechniques();
     }
 

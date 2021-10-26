@@ -70,6 +70,23 @@ class FighterTest {
     }
 
     @Test
+    void givenSkilledFighter_WhenFightsRandoriWithUnskilledFighter_ThenSkilledFighterWins() {
+        Fighter theHero = Fighter.createFearsomeFighter("Liu Kang");
+        when(sensei.teachTechnique()).thenReturn(new Training(GYAKU_TSUKI, 80));
+        theHero.trainsWith(sensei);
+
+        Fighter theFriend = Fighter.createFearsomeFighter("Kitana");
+        when(sensei.teachTechnique()).thenReturn(new Training(GYAKU_TSUKI, 79));
+        theFriend.trainsWith(sensei);
+
+
+        Fighter winner = theHero.fightsRandoriWith(theFriend);
+        assertThat(winner).isEqualTo(theHero);
+        assertThat(winner.getHealthPower().hasHealthPower()).isTrue();
+        assertThat(theFriend.getHealthPower().hasHealthPower()).isFalse();
+    }
+
+    @Test
     void givenUnSkilledFighter_WhenFightsRandoriWithSkilledFighter_ThenSkilledFighterWins() {
         Fighter theHero = Fighter.createFearsomeFighter("Liu Kang");
         when(sensei.teachTechnique()).thenReturn(new Training(GYAKU_TSUKI, 79));

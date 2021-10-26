@@ -12,7 +12,7 @@ class TrainingTest {
     void givenCreatingTraining_WhenGetAttack_ThenReturnsAttack() {
         Training training = new Training(GYAKU_TSUKI, 10);
 
-        assertThat(training.getAttack()).isEqualTo(GYAKU_TSUKI);
+        assertThat(training.getTechnique()).isEqualTo(GYAKU_TSUKI);
     }
 
     @Test
@@ -47,6 +47,6 @@ class TrainingTest {
 
         assertThatThrownBy(() -> training.addTraining(training2))
                 .isInstanceOf(YouCanOnlyTrainTheSameTechniqueException.class)
-                .hasMessage("Both attacks are not the same GYAKU_TSUKI and OI_TSUKI");
+                .hasMessage("Both techniques are not the same GYAKU_TSUKI and OI_TSUKI");
     }
 }

@@ -2,7 +2,7 @@ package kata.mortalkombat.tournament.technique;
 
 import kata.mortalkombat.tournament.math.Random;
 
-public enum Attack {
+public enum Attack implements Technique {
     MAE_GERI,
     HIZA_GERI,
     MAWASHI_GERI,
