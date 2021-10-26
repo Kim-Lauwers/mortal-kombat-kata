@@ -71,7 +71,7 @@ class TechniquesTest {
         techniques.addTraining(new Training(HIZA_GERI, 100));
         techniques.addTraining(new Training(GEDAN_BARAI, 80));
 
-        assertThat(techniques.getRandoriTechniques()).containsExactlyInAnyOrder(new Training(HIZA_GERI, 100));
+        assertThat(techniques.getRandoriAttackTechniques()).containsExactlyInAnyOrder(new Training(HIZA_GERI, 100));
     }
 
     @Test

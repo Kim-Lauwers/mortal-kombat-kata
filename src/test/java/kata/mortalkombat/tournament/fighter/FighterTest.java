@@ -1,6 +1,7 @@
 package kata.mortalkombat.tournament.fighter;
 
 import kata.mortalkombat.tournament.Sensei;
+import kata.mortalkombat.tournament.technique.Defense;
 import kata.mortalkombat.tournament.technique.Training;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -8,6 +9,8 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import static kata.mortalkombat.tournament.technique.Attack.GYAKU_TSUKI;
+import static kata.mortalkombat.tournament.technique.Attack.OI_TSUKI;
+import static kata.mortalkombat.tournament.technique.Defense.GEDAN_BARAI;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.when;
@@ -70,15 +73,16 @@ class FighterTest {
     }
 
     @Test
-    void givenSkilledFighter_WhenFightsRandoriWithUnskilledFighter_ThenSkilledFighterWins() {
+    void givenSkilledFighterHasDefense_WhenFightsRandori_ThenSkilledFighterWins() {
         Fighter theHero = Fighter.createFearsomeFighter("Liu Kang");
         when(sensei.teachTechnique()).thenReturn(new Training(GYAKU_TSUKI, 80));
         theHero.trainsWith(sensei);
+        when(sensei.teachTechnique()).thenReturn(new Training(GEDAN_BARAI, 80));
+        theHero.trainsWith(sensei);
 
         Fighter theFriend = Fighter.createFearsomeFighter("Kitana");
-        when(sensei.teachTechnique()).thenReturn(new Training(GYAKU_TSUKI, 79));
+        when(sensei.teachTechnique()).thenReturn(new Training(OI_TSUKI, 80));
         theFriend.trainsWith(sensei);
-
 
         Fighter winner = theHero.fightsRandoriWith(theFriend);
         assertThat(winner).isEqualTo(theHero);

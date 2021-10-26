@@ -29,15 +29,8 @@ public class Techniques {
         techniques.add(cumulTraining);
     }
 
-    private boolean hasAtLeastOneAttackWhichCanBeDefendendBy(Defense defense) {
-        return techniques
-                .stream()
-                .filter(Training::isAttack)
-                .anyMatch(attack -> defense.canDefendAgainst((Attack) attack.getTechnique()));
-    }
-
-    public Training getRandomRandoriTechnique() {
-        ArrayList<Training> techniques = new ArrayList<>(getRandoriTechniques());
+    public Training getRandomRandoriAttackTechnique() {
+        ArrayList<Training> techniques = new ArrayList<>(getRandoriAttackTechniques());
         Collections.shuffle(techniques);
         return techniques.get(0);
     }
@@ -50,12 +43,34 @@ public class Techniques {
     }
 
     public boolean hasRandoriTechniques() {
-        return !getRandoriTechniques().isEmpty();
+        return !getRandoriAttackTechniques().isEmpty();
+    }
+
+    Set<Training> getRandoriAttackTechniques() {
+        return techniques.stream()
+                .filter(Training::mastersTechniqueForRandori)
+                .filter(Training::isAttack)
+                .collect(toUnmodifiableSet());
     }
 
     Set<Training> getRandoriTechniques() {
         return techniques.stream()
                 .filter(Training::mastersTechniqueForRandori)
                 .collect(toUnmodifiableSet());
+    }
+
+    public Optional<Training> findDefenseFor(Attack attack) {
+        return getRandoriTechniques()
+                .stream()
+                .filter(Training::isDefense)
+                .filter(training -> ((Defense) training.getTechnique()).canDefendAgainst(attack))
+                .findFirst();
+    }
+
+    private boolean hasAtLeastOneAttackWhichCanBeDefendendBy(Defense defense) {
+        return techniques
+                .stream()
+                .filter(Training::isAttack)
+                .anyMatch(attack -> defense.canDefendAgainst((Attack) attack.getTechnique()));
     }
 }

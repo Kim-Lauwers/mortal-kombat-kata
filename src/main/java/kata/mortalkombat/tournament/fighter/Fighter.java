@@ -2,11 +2,15 @@ package kata.mortalkombat.tournament.fighter;
 
 import kata.mortalkombat.tournament.Sensei;
 import kata.mortalkombat.tournament.commentator.Commentator;
+import kata.mortalkombat.tournament.technique.Attack;
 import kata.mortalkombat.tournament.technique.Technique;
 import kata.mortalkombat.tournament.technique.Techniques;
 import kata.mortalkombat.tournament.technique.Training;
 
+import java.util.Optional;
 import java.util.Set;
+
+import static java.lang.Math.max;
 
 public class Fighter {
     private final String name;
@@ -41,9 +45,9 @@ public class Fighter {
 
         while (fighter.healthPower.hasHealthPower() && this.healthPower.hasHealthPower()) {
             if (this.canFightARandori()) {
-                fighter.takesAnAttack(this.throwsAttack());
+                fighter.takesAnAttackAndDefendIfPossible(this.throwsAttack());
             } else {
-                this.takesAnAttack(fighter.throwsAttack());
+                this.takesAnAttackAndDefendIfPossible(fighter.throwsAttack());
             }
         }
 
@@ -65,13 +69,22 @@ public class Fighter {
         }
     }
 
-    private void takesAnAttack(Training technique) {
-        this.healthPower = new HealthPower(this.healthPower.getHealthPower() - technique.getDamage().getDamagePower());
-        commentator.giveComment(String.format("%s takes an attach an his new healthpower is %s", this, healthPower.getHealthPower()));
+    private void takesAnAttackAndDefendIfPossible(Training technique) {
+
+        Optional<Training> defense = this.techniques.findDefenseFor((Attack) technique.getTechnique());
+
+        int damagePower = defense
+                .map(optionalDefense -> technique.getDamage().getDamagePower() - optionalDefense.getDamage().getDamagePower())
+                .orElse(technique.getDamage().getDamagePower());
+        defense.ifPresent(
+                optionalDefense -> commentator.giveComment(String.format("%s uses defense %s", this, optionalDefense.getTechnique())));
+
+        this.healthPower = new HealthPower(this.healthPower.getHealthPower() - max(damagePower, 0));
+        commentator.giveComment(String.format("%s takes an attack an his new healthpower is %s", this, healthPower.getHealthPower()));
     }
 
     private Training throwsAttack() {
-        Training technique = this.techniques.getRandomRandoriTechnique();
+        Training technique = this.techniques.getRandomRandoriAttackTechnique();
         commentator.giveComment(String.format("%s throws the attack %s", this, technique.getTechnique()));
         return technique;
     }
