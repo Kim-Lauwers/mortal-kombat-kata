@@ -46,6 +46,10 @@ public class Techniques {
         return !getRandoriAttackTechniques().isEmpty();
     }
 
+    public boolean hasMasteredTechniques() {
+        return !getMasteredTechniques().isEmpty();
+    }
+
     Set<Training> getRandoriAttackTechniques() {
         return techniques.stream()
                 .filter(Training::mastersTechniqueForRandori)

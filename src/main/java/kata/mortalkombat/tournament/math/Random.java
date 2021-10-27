@@ -8,6 +8,6 @@ public class Random {
     }
 
     public int random(int lowerBound, int upperBound) {
-        return RANDOM.ints(lowerBound, (upperBound + 1)).findFirst().getAsInt();
+        return RANDOM.ints(lowerBound, (upperBound)).findFirst().getAsInt();
     }
 }

@@ -1,6 +1,6 @@
 package kata.mortalkombat.tournament.realm;
 
- enum Realm {
+ public enum Realm {
     EARTHREALM,
     OUTWORLD,
     NETHERREALM,

@@ -1,24 +1,21 @@
 package kata.mortalkombat.tournament.realm;
 
-import kata.mortalkombat.tournament.fighter.Fighter;
 import kata.mortalkombat.tournament.math.Random;
 
 
-class RealmDivider {
+public class RealmDivider {
     private final Random random;
 
-    RealmDivider(Random random) {
+    public RealmDivider(Random random) {
         this.random = random;
     }
 
-    private Realm randomRealm() {
-        int randomRealmIndex = random.random(Realm.class.getEnumConstants().length);
-        return Realm.class.getEnumConstants()[randomRealmIndex];
+    public RealmDivider() {
+        this.random = new Random();
     }
 
-    Realm determineRealmForFighter(Fighter fighter) {
-        Realm realm = randomRealm();
-        System.out.printf("%s is fighting for: %s%n", fighter.getName(), realm.name());
-        return realm;
+    public Realm randomRealm() {
+        int randomRealmIndex = random.random(Realm.class.getEnumConstants().length );
+        return Realm.class.getEnumConstants()[randomRealmIndex];
     }
 }

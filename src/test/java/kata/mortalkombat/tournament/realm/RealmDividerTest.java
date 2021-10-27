@@ -3,7 +3,6 @@ package kata.mortalkombat.tournament.realm;
 import kata.mortalkombat.tournament.math.Random;
 import org.junit.jupiter.api.Test;
 
-import static kata.mortalkombat.tournament.fighter.Fighter.createFearsomeFighter;
 import static kata.mortalkombat.tournament.realm.Realm.EDENIA;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -12,7 +11,7 @@ class RealmDividerTest {
     public void whenDetermineRealmForWizard_ThenRandomRealmIsGiven() {
         RealmDivider realmDivider = new RealmDivider(new Fixed());
 
-        Realm result = realmDivider.determineRealmForFighter(createFearsomeFighter("Sonya Blade"));
+        Realm result = realmDivider.randomRealm();
 
         assertThat(result).isEqualTo(EDENIA);
     }
