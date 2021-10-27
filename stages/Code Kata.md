@@ -6,4 +6,5 @@
     * Enjoy the road, the journey
 * Clean code
 * Patterns
+* Shortcuts / keys  
 * Refactor and why?
