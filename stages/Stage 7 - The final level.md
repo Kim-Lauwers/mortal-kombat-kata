@@ -13,7 +13,7 @@ Make sure that the commentator gives enough feedback during the Kumite.
 * A fighter can have a combo for every 100 hours trained with a max of 5 combo's.
     * So a combo of 3 (means 300 hours or more trainend) means the original damage times 3
     * The number of combo's is random (so random between 1 and 3)
-* At least one fighter has to know 1 attach techniques with 10 or more hours of training.
+* At least one fighter has to know 1 attach techniques with 100 or more hours of training.
 * Fighters cannot be of the same realm
 
 **Who wins Mortal Kombat?**
