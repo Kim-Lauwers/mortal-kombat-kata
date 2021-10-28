@@ -30,8 +30,9 @@ class FighterTest {
     void whenLearnTechnique_ThenTechniqueIsAddedToSet() {
 
         Technique technique = Technique.GYAKU_TSUKI;
-        fighter.learnTechnique(technique);
+        Training training = new Training(technique, 10);
+        fighter.followTraining(training);
 
-        assertThat(fighter.getTechniques()).containsExactly(technique);
+        assertThat(fighter.getTrainings()).containsExactly(training);
     }
 }
