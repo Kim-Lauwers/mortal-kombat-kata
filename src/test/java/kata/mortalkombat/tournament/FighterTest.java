@@ -11,4 +11,11 @@ class FighterTest {
 
         assertThat(theHero.getName()).isEqualTo("Liu Kang");
     }
+
+    @Test
+    void whenCreateFearsomeFighter_ThenFighterHasARealm(){
+        Fighter fighter = Fighter.createFearsomeFighter("Bob");
+
+        assertThat(fighter.getRealm()).isNotNull();
+    }
 }
