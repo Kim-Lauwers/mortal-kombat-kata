@@ -16,4 +16,4 @@ The realms are as follows:
 <br />
 <br />
 <br />
-Every Fighter is born with a name in a Realm, make sure when a fighter is created he or she is randomly assigned to a Realm.
+Every Fighter is born with a name and in a Realm, make sure when a fighter is created he or she is randomly assigned to a Realm.
