@@ -16,16 +16,4 @@ The realms are as follows:
 <br />
 <br />
 <br />
-Implement a Tournament Master that randomly assigns a fighter to a Realm when creating a fighter.
-Try to have some feedback from the Master as well like this:
-<br />
-<br />
-Hmm, who do we have here?
-<br />
-Ah, I see, a Reptile
-<br />
-Where shall we put you...
-<br />
-Oh, I know...
-<br />
-OK Reptile, You will fight for ... Outworld!
+Every Fighter is born with a name in a Realm, make sure when a fighter is created he or she is randomly assigned to a Realm.
