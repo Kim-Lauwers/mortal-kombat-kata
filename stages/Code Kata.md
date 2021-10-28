@@ -8,3 +8,4 @@
 * Patterns
 * Shortcuts / keys  
 * Refactor and why?
+* If you pair, best let the most junior dev drive
